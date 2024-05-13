@@ -2,6 +2,7 @@ import java.util.Scanner;
   import java.time.Period;
    import java.time.LocalDate;
    import java.util.Date;
+    import java.time.format.DateTimeFormatter;
 
 
 	public class MenstralCycle{
@@ -37,22 +38,18 @@ import java.util.Scanner;
 		
 		
 
-		System.out.print("Enter a current date of your menstral pain : ");
-		int curDate = input.nextInt();
+		System.out.println("Enter a current date of your menstral pain: (05 13 2024)");
+		String curDate = input.next();
 
 			int month = 30;	
 
 		LocalDate startDate = LocalDate.now().minusMonths(1);
 		LocalDate endDate =  LocalDate.now();
-		Period fromMonths = Period.ofMonths(1);
+		Period fromMonths = Period.parse(flowDate);
 		Date date = new Date();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
-		curDate = curDate - month;
 		
-		System.out.printf("CurDate between startDate and: " %d%n + " endDate is :  %d%n + ", Period.ofMonths(1));
-
-
-
 
 
 
