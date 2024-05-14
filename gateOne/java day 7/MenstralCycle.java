@@ -51,17 +51,19 @@ import java.util.Scanner;
 		LocalDate localLastMonthDate = LocalDate.parse(LastMonth, formatter);
 
 		long lengthCycle  = ChronoUnit.DAYS.between(localFirstMonthDate,localLastMonthDate);
-		System.out.print("The Total LengthCycle is " + lengthCycle);
+		System.out.println("The Total LengthCycle is " + lengthCycle);
 
 		
-		LocalDate nextCycle = localDate.plusDays(lengthCycle);
+		LocalDate nextCycle = localLastMonthDate.plusDays(lengthCycle);
+
+		System.out.printf(" the nextCycle is " + nextCycle);
+
+		LocalDate ovuDate = nextCycle.minus(14);
+		System.out.print(" the  OvuDate is " + ovuDate);
 
 
 
-
-
-
-		}
+		 }
 
 
 	}
