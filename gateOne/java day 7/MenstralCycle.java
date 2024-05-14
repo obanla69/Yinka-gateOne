@@ -3,6 +3,7 @@ import java.util.Scanner;
    import java.time.LocalDate;
    import java.util.Date;
     import java.time.format.DateTimeFormatter;
+     import java.time.temporal.ChronoUnit;
      
 
 	public class MenstralCycle{
@@ -20,7 +21,7 @@ import java.util.Scanner;
 	
 		System.out.print(menstralCycle);
 		Scanner input = new Scanner(System.in);
-		int cycle = input.nextInt();
+		int cycle = input.nextInt();  
 
 		switch(cycle){
 		case 1 :
@@ -36,30 +37,29 @@ import java.util.Scanner;
 		to calculate the flow date
 		""";
 
-		System.out.println("what is the last month of your period : (14/05/2024)");
-		String lastMonth = input.nextLine();
+		System.out.println("what is the first day of your last  month of your period : (14/05/2024)");
+		String firstMonth = input.next();
+		
+		System.out.println("what was the last day of your last two month of mestrual cycle(14/05/2024)");
+		String LastMonth = input.next();
 
 		System.out.println("How many days is your period " );
 		int days = input.nextInt();
 		
 		LocalDate today = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");			System.out.println("Todays date is " + today);		
-		LocalDate freeFlow = today.plusMonths(1);
-		System.out.println("Your free period is " + freeFlow);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");			LocalDate localFirstMonthDate = LocalDate.parse(firstMonth,formatter);
+		LocalDate localLastMonthDate = LocalDate.parse(LastMonth, formatter);
 
-		int sum = 0;
-		int averageLengthCycle = 0;
-			
-		System.out.print("Enter a number : ");
-		int number1 = input.nextInt();
-		int number2 = input.nextInt();
-		int number3 = input.nextInt();
-	 	 sum = number1 + number2 + number3;
-		averageLengthCycle /= sum;
-		System.out.printf("AverageLengthCycle is %.2f%n", + averageLengthCycle);
-			
-	
-				
+		long lengthCycle  = ChronoUnit.DAYS.between(localFirstMonthDate,localLastMonthDate);
+		System.out.print("The Total LengthCycle is " + lengthCycle);
+
+		
+		LocalDate nextCycle = localDate.plusDays(lengthCycle);
+
+
+
+
+
 
 		}
 
