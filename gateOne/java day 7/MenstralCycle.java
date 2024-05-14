@@ -3,6 +3,7 @@ import java.util.Scanner;
    import java.time.LocalDate;
    import java.util.Date;
     import java.time.format.DateTimeFormatter;
+     import java.time.Temporal;
 
 
 	public class MenstralCycle{
@@ -35,19 +36,28 @@ import java.util.Scanner;
 
 		to calculate the flow date
 		""";
-		
-		
 
-		System.out.println("Enter a current date of your menstral pain: (05 13 2024)");
+		System.out.println("The current date of your menstral pain: (05 13 2024)");
 		String curDate = input.next();
 
-			int month = 30;	
+		System.out.print("How many days your last period: ");
+		 LocalDate lastDate = LocalDate.parse(scanner.nextLine());
+
+		System.out.print("Enter the average menstrual cycle length in days: ");
+		int cycleLength = scanner.nextInt();
+
+		LocalDate nextMenstrualFlow = lastDate.plusDays(cycleLength);
+
+	
+		 LocalDate ovulationDate = lastDate.pluDays(cycleLength / 2);
 
 		LocalDate startDate = LocalDate.now().minusMonths(1);
 		LocalDate endDate =  LocalDate.now();
 		Period fromMonths = Period.parse(flowDate);
 		Date date = new Date();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		System.out.println("startDate : " + (endDate));
 		
 		
 
