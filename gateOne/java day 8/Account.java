@@ -87,17 +87,17 @@
 	
 	   public static void main(String[]args){
 		   Scanner input = new Scanner(System.in);
+ 			
 
-			Account account1 = new Account();
-
+			String account1;
+			
 			int accountPin = 9890;
 
-			System.out.print("WELCOME TO THE BANKE BANK OF NIGERIA ");
+			System.out.println("WELCOME TO THE BANKE BANK OF NIGERIA ");
 
 		     System.out.print("Enter your firstName : ");
 		       String userInput1 = input.next();
-
-		
+			 		
 		         System.out.print("Enter your lastName : ");
 		          String userInput2 = input.next();
 			
@@ -106,13 +106,13 @@
 
 				while(entry != accountPin){
 				
-				  System.out.print("\n INCORRECT PIN. TRY AGAIN. ");
-				  System.out.print("ENTER YOUR PIN " );
+				  System.out.println("\n INCORRECT PIN. TRY AGAIN. ");
+				  System.out.println("ENTER YOUR PIN " );
 				    entry = input.nextInt();
 
 			}
 					
-					System.out.print("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");		
+					System.out.println("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");		
 
 
 
