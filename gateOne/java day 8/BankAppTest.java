@@ -5,8 +5,8 @@ import java.util.Scanner;
 	
 	   public static void main(String[]args){
 		
-	BankApp account1 = new Acccount (" Mohammed");
-	BankApp account2 = new Account (" obanla");	
+	BankApp bankapp1 = new BankApp();
+	Account bankapp2 = new BankApp();	
 
 	
 

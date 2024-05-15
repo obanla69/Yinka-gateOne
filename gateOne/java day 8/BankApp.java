@@ -3,47 +3,51 @@
 
 	public class BankApp{
 		
-		private String name;
-		private int pin;
+		private String firstName;
+		private String lastName;
+		private int accountPin;
 		private int closeAccount;
 		private  int withdraw;
-		private long accountBalanace;
-		private int Transfer;
+		private int balance;
+		private int transfer;
 		private int changePin;
 
 
-	public BankApp(String name, int pin, int closeAccount, int withdraw, long accountBalance, int transfer, int changePin){
+	public BankApp(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin){
 
-		this.name = name;
-		this.AccountPin = AccountPin;
-		this.closeAccount = closeAccount;
-		this.withdraw = withdraw;
-		this.transfer = transfer;
-		this.changePin = changePin;
-		this.accountBalance = accountBalance;
-		
+		this.firstName = firstName;
+		this.lastName = lastName;		
+
 		}
 		
-		public String getName(){
-			return name;
+		public String getFirstName(){
+			return firstName;
 		}
-		  public void setName(String name){
-			this.name = name;
+		  public void setFirstName(String FirstName){
+			this.firstName = firstName;
+		}
+
+		public String getLastName(){
+			return lastName;
+		}
+
+		public void setLastName(){
+			this.lastName = lastName;
 		}
 		
 		   public int getAccountPin(){
-			return AccountPin;
+			return accountPin;
 		}
 
 		  public void setAccountPin(int pin){
-			this.AccountPin = AccountPin;
+			this.accountPin = accountPin;
 		}
 			
-		   public long getCloseAccount(){
+		   public int getCloseAccount(){
 			return closeAccount;
 		}
 
-		   public void setCloseAccount(long closeAccount){
+		   public void setCloseAccount(int closeAccount){
 			this.closeAccount = closeAccount;
 		}	
 
@@ -63,21 +67,64 @@
 			 }
 
 			   public int getChangePin(){
-				retrun changePin;
+				return changePin;
 			  }
 
 			public void setChangePin(int changePin){
 				this.changePin = changePin;
 			}
 
-			public long getAccountBalance(){
-				return accountBalance;
+			public int getBalance(){
+				return balance;
 			
 			}
 	
-			public void setAccountBalance(){
-				this.accountBalance = accountBalance;
+			public void setBalance(){
+				this.balance = balance;
 			}
+
+		
+
+		public static void main(String[]args){
+
+			String details = """
+			press 
+			
+			1 -> firstName
+			2 -> lastName
+			3 -> accountPin
+			4 -> closeAccount
+			5 -> withdraw
+			6 -> balance
+			7 -> transfer
+			8 -> changePin
+			""";
+		
+			System.out.print(details);
+			Scanner input = new Scanner(System.in);
+			int optionInput = input.nextInt();
+			
+
+			switch(optionInput){
+
+			case 1 :
+			
+			System.out.print(" Enter your first name : ");
+			String userinput = input.next();
+			
+			
+			
+			
+
+				
+}
+
+
+		
+			
+
+	}
+
 
 
 
