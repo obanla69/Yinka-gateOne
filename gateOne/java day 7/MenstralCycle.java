@@ -56,10 +56,10 @@ import java.util.Scanner;
 		
 		LocalDate nextCycle = localLastMonthDate.plusDays(lengthCycle);
 
-		System.out.printf(" the nextCycle is " + nextCycle);
+		System.out.printf("The nextCycle is " + nextCycle);
 
-		LocalDate ovuDate = nextCycle.minus(14);
-		System.out.print(" the  OvuDate is " + ovuDate);
+		LocalDate ovuDate = nextCycle.subtractFrom(14);
+		System.out.print(" The  OvuDate is " + ovuDate);
 
 
 
