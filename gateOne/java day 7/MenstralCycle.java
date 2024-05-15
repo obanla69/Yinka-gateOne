@@ -37,17 +37,18 @@ import java.util.Scanner;
 		to calculate the flow date
 		""";
 
-		System.out.println("what is the first day of your last  month of your period : (14/05/2024)");
+		System.out.println("what is the first day of your last  month of your period : (dd/MM/YYYY)");
 		String firstMonth = input.next();
 		
-		System.out.println("what was the last day of your last two month of mestrual cycle(14/05/2024)");
+		System.out.println("what was the last day of your last two month of mestrual cycle(dd/MM/YYYY)");
 		String LastMonth = input.next();
 
 		System.out.println("How many days is your period " );
 		int days = input.nextInt();
 		
 		LocalDate today = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");			LocalDate localFirstMonthDate = LocalDate.parse(firstMonth,formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");			
+		LocalDate localFirstMonthDate = LocalDate.parse(firstMonth,formatter);
 		LocalDate localLastMonthDate = LocalDate.parse(LastMonth, formatter);
 
 		long lengthCycle  = ChronoUnit.DAYS.between(localFirstMonthDate,localLastMonthDate);
@@ -58,8 +59,8 @@ import java.util.Scanner;
 
 		System.out.printf("The nextCycle is " + nextCycle);
 
-		LocalDate ovuDate = nextCycle.subtractFrom(14);
-		System.out.print(" The  OvuDate is " + ovuDate);
+		LocalDate ovulationDate = localLastMonthDate.minusDays(lengthCycle);
+		System.out.println(" The  OvulationDate is " + ovulationDate);
 
 
 
