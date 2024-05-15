@@ -11,9 +11,10 @@
 		private int balance;
 		private int transfer;
 		private int changePin;
+		private int amount;
 
 
-	public Account(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin){
+	public Account(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin, int account){
 
 		this.firstName = firstName;
 		this.lastName = lastName;		
@@ -27,6 +28,13 @@
 			this.firstName = firstName;
 		}
 
+		public void setAmount(int amount){
+			this.amount = amount;
+		}
+		public int getAmount(){
+			return amount;
+		}
+		
 		public String getLastName(){
 			return lastName;
 		}
@@ -56,8 +64,19 @@
 		   }
 
 		    public void setWithdraw(int withdraw){
+			if(balance >= amount){
+			 balance = balance - amount;
+			  System.out.print("balance after withdrawal: " + balance);
+			
+			}else{
+
+				System.out.println("Your balance is less than " + amount + " \t Transaction failed...");
+			   }
+			
 			this.withdraw = withdraw;
-		}
+
+			}	
+
 		     public int getTransfer(){
 			return transfer;
 		    }
@@ -112,18 +131,16 @@
 
 			}
 					
-					System.out.println("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");		
+				System.out.println("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");											
+			}
+	  			
+				System.out.print("Enter amount for deposit : ");
+				int deposit = input.nextDouble();
 
+				System.out.printf("%n adding %.2.f to firstName balance%n%n ", + deposit);
+				firstName.deposit(deposit);
 
-
-	
-
-	}
-	  
-
-		
-		
-		
+				System.out.printf("%s balance: $%.2f%n", firstName.getName(),firstName.getBalance());
 	
 
 
