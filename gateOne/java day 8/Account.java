@@ -7,14 +7,13 @@
 		private String lastName;
 		private int accountPin;
 		private int closeAccount;
-		private  int withdraw;
-		private int balance;
-		private int transfer;
+		private static double balance;
+		private  static int transfer;
 		private int changePin;
-		private int amount;
+		private static int amount;
+		private static int deposit;
 
-
-	public Account(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin, int account){
+	public Account(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin, int account , int deposit){
 
 		this.firstName = firstName;
 		this.lastName = lastName;		
@@ -33,6 +32,15 @@
 		}
 		public int getAmount(){
 			return amount;
+		}
+
+		public int getDeposit(){
+			return deposit;
+			
+		}
+
+		public void setDeposit(){
+		   this. deposit = deposit;
 		}
 		
 		public String getLastName(){
@@ -59,23 +67,7 @@
 			this.closeAccount = closeAccount;
 		}	
 
-		    public int getwithdraw(){
-			 return withdraw;
-		   }
-
-		    public void setWithdraw(int withdraw){
-			if(balance >= amount){
-			 balance = balance - amount;
-			  System.out.print("balance after withdrawal: " + balance);
-			
-			}else{
-
-				System.out.println("Your balance is less than " + amount + " \t Transaction failed...");
-			   }
-			
-			this.withdraw = withdraw;
-
-			}	
+		    	
 
 		     public int getTransfer(){
 			return transfer;
@@ -93,58 +85,104 @@
 				this.changePin = changePin;
 			}
 
-			public int getBalance(){
+			public double getBalance(){
 				return balance;
 			
 			}
-	
-			public void setBalance(){
-				this.balance = balance;
-			}
-
 
 	
 	   public static void main(String[]args){
 		   Scanner input = new Scanner(System.in);
- 			
-
-			String account1;
+ 	
 			
-			int accountPin = 9890;
+			int option = 0;
+			
+			while (option != 5){
 
 			System.out.println("WELCOME TO THE BANKE BANK OF NIGERIA ");
-
-		     System.out.print("Enter your firstName : ");
-		       String userInput1 = input.next();
-			 		
-		         System.out.print("Enter your lastName : ");
-		          String userInput2 = input.next();
-			
-			    System.out.print("Enter your accountPin : ");
-			     int entry = input.nextInt();			
-
-				while(entry != accountPin){
+			System.out.println(" 1  To create account");
+			  System.out.println(" 2  Deposit");
+			    System.out.println(" 3 balance" );
+			      System.out.println(" 4 withdraw ");
+				System.out.println(" 5 exit");
+			        System.out.println(" Enter an option: ");
+			           option = input.nextInt();
 				
-				  System.out.println("\n INCORRECT PIN. TRY AGAIN. ");
-				  System.out.println("ENTER YOUR PIN " );
-				    entry = input.nextInt();
+				switch (option){
 
-			}
-					
-				System.out.println("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");											
-			}
-	  			
-				System.out.print("Enter amount for deposit : ");
-				int deposit = input.nextDouble();
-
-				System.out.printf("%n adding %.2.f to firstName balance%n%n ", + deposit);
-				firstName.deposit(deposit);
-
-				System.out.printf("%s balance: $%.2f%n", firstName.getName(),firstName.getBalance());
-	
-
+				case 1 :
+				   account();
+				    break;	
+				case 2 :
+				    deposit();
+				     break;
+				case 3 :
+				     balance();
+				      break;
+				case 4 :
+				     withdraw();
+				     break;
+				case 5 :
+				    System.out.print("Invalid option.Try again. " );
+               }
+            }
+           }
+            public static void account(){
+                   Scanner input = new Scanner(System.in);
+                  System.out.println("Enter your firstName : ");
+		  String userInput1 = input.next();
+			 		
+		  System.out.println("Enter your lastName : ");
+		  String userInput2 = input.next();
+			
+	          System.out.println("Enter your accountPin : ");
+	          int entry = input.nextInt();			
+                  
+              while(entry == 4){
+		  System.out.println("ENTER YOUR PIN " );
+		   entry = input.nextInt();
 
 		}
+
+		
+                System.out.println("\n PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");
+		System.out.println(" YOU ARE SUCCESSFUL HAVE AN ACCOUNT");
+                   
+	     									
+             }
+
+		public static void balance(){
+		   System.out.println("Your current Balance is $" + balance);
+
+
+
+		}		
+
+                public static double deposit(){
+                 Scanner input = new Scanner(System.in);
+                 System.out.println("How much do you want to deposit?   ");
+                 double amount = input.nextDouble();
+                 if(amount > 0){
+                     balance += amount;
+                  } 
+		
+                    return balance;
+		}
+
+               public static void withdraw(){
+               Scanner input = new Scanner(System.in);
+                System.out.println("How much do you want to withdraw?   ");
+                 double amount = input.nextDouble();
+                   if(balance >= amount){
+			 balance = balance - amount;
+		
+		}                
+               }
+
+	
+	}		
+
+
 
 
 	
