@@ -16,7 +16,9 @@
 	public Account(String firstName, String lastName, int accountPin, int closeAccount, int withdraw, int balance, int transfer, int changePin, int account , int deposit){
 
 		this.firstName = firstName;
-		this.lastName = lastName;		
+		this.lastName = lastName;
+		this.amount = amount;
+		this.deposit = deposit;	
 
 		}
 		
@@ -38,11 +40,7 @@
 			return deposit;
 			
 		}
-
-		public void setDeposit(){
-		   this. deposit = deposit;
-		}
-		
+				
 		public String getLastName(){
 			return lastName;
 		}
@@ -63,29 +61,15 @@
 			return closeAccount;
 		}
 
-		   public void setCloseAccount(int closeAccount){
-			this.closeAccount = closeAccount;
-		}	
-
-		    	
-
 		     public int getTransfer(){
 			return transfer;
 		    }
 		
-			public void setTransfer(int transfer){
-				this.transfer = transfer;
-			 }
-
 			   public int getChangePin(){
 				return changePin;
 			  }
 
-			public void setChangePin(int changePin){
-				this.changePin = changePin;
-			}
-
-			public double getBalance(){
+				public double getBalance(){
 				return balance;
 			
 			}
@@ -93,7 +77,6 @@
 	
 	   public static void main(String[]args){
 		   Scanner input = new Scanner(System.in);
- 	
 			
 			int option = 0;
 			
@@ -130,7 +113,7 @@
             public static void account(){
                    Scanner input = new Scanner(System.in);
                   System.out.println("Enter your firstName : ");
-		  String userInput1 = input.next();
+		   String userInput1 = input.next();
 			 		
 		  System.out.println("Enter your lastName : ");
 		  String userInput2 = input.next();
@@ -153,7 +136,7 @@
 
 		public static void balance(){
 		   System.out.println("Your current Balance is $" + balance);
-
+		 
 
 
 		}		
@@ -162,6 +145,7 @@
                  Scanner input = new Scanner(System.in);
                  System.out.println("How much do you want to deposit?   ");
                  double amount = input.nextDouble();
+		  System.out.println(" YOU HAVE SUCCESSFULLY  DEPOSIT " );
                  if(amount > 0){
                      balance += amount;
                   } 
@@ -173,6 +157,7 @@
                Scanner input = new Scanner(System.in);
                 System.out.println("How much do you want to withdraw?   ");
                  double amount = input.nextDouble();
+		 System.out.print("YOU HAVE SUCCESSFULLY WITHDRAW ");
                    if(balance >= amount){
 			 balance = balance - amount;
 		
